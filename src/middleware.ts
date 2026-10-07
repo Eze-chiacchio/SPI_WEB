@@ -1,0 +1,19 @@
+import { NextResponse, type NextRequest } from "next/server";
+import { defaultLocale, isLocale } from "@/i18n/config";
+
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  const first = pathname.split("/").filter(Boolean)[0];
+
+  if (isLocale(first)) {
+    return NextResponse.next();
+  }
+
+  const url = request.nextUrl.clone();
+  url.pathname = pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
+  return NextResponse.redirect(url);
+}
+
+export const config = {
+  matcher: ["/((?!_next|api|images|.*\\..*).*)"],
+};
