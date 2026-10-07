@@ -13,8 +13,8 @@ export function AboutPage({ dict }: { dict: Dictionary }) {
       />
 
       <section className="bg-white py-20 sm:py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl space-y-12">
             <Reveal>
               <div>
                 <h2 className="font-display text-2xl font-bold text-brand-950 sm:text-3xl">
